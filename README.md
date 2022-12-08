@@ -13,3 +13,17 @@ docker buildx build --platform=linux/amd64 --no-cache -t ghcr.io/bym0/fritzbox-e
 ```bash
 docker push ghcr.io/bym0/fritzbox-exporter:latest
 ```
+
+## usage
+```bash
+docker run
+  -d
+  -e TZ="Europe/Berlin"
+  -e 'USERNAME'='<FRITZ_USER>'
+  -e 'PASSWORD'='<FRITZ_PASS>'
+  -e 'GATEWAY_URL'='http://<FRITZ_IP>:49000'
+  -e 'LISTEN_ADDRESS'='0.0.0.0:9042'
+  -e 'GATEWAY_LORA_URL'='http://<FRITZ_IP>'
+  -p '9042:9042/tcp' 
+  'ghcr.io/bym0/fritzbox-exporter:latest'
+```
